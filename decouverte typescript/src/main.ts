@@ -1,4 +1,5 @@
 import {Character} from './character';
+import {Deplacement} from './custom-type';
 
 let legolas = new Character('legolas');
 
@@ -10,7 +11,7 @@ let legolas = new Character('legolas');
 // }
 
 // typage dynamique
-function faireDeplacer(perso: { seDeplacer: ()=>void }): void {
+function faireDeplacer(perso: Deplacement): void {
     perso.seDeplacer();
 }
 faireDeplacer(legolas);
