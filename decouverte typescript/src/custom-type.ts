@@ -1,7 +1,9 @@
+import { Localisation } from "./character";
+
 /**
  * Objet avec methode de déplacement
  */
 export type Deplacement = { 
     vitesse?: number;
-    seDeplacer: ()=> void 
+    seDeplacer: (localisation: Localisation)=> void 
 }

@@ -1,7 +1,12 @@
-import {Character} from './character';
+import {AvecDeplacement, Character} from './character';
 import {Deplacement} from './custom-type';
 
-let legolas = new Character('legolas');
+let legolas: AvecDeplacement = new Character('legolas');
+let jeMeDeplace: AvecDeplacement = {
+    seDeplacer: (location) => {
+        console.info(location === 'Comté');
+    }
+}
 
 //legolas = 1;
 
@@ -12,15 +17,17 @@ let legolas = new Character('legolas');
 
 // typage dynamique
 function faireDeplacer(perso: Deplacement): void {
-    perso.seDeplacer();
+    perso.seDeplacer('Comté');
 }
 faireDeplacer(legolas);
 
 let elfe2: Character = {
+    role: 'archer',
     nom: 'legolas',
     seDeplacer: () => {
         console.info('je saute d\'arbre en arbre');
-    }
+    },
+    attaquer: () => {}
 }
 faireDeplacer(elfe2);
 
