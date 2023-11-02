@@ -3,7 +3,11 @@ import {Player} from './player';
 
 const player: Player = {
     dateNaissance: new Date(),
-    prenom: 'Evan'
+    prenom: 'Evan',
+    role: {
+        label: 'magicien',
+        power: 100
+    }
 }
 
 player.games = [];
