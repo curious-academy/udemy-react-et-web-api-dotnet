@@ -1,5 +1,5 @@
 import './App.css'
-import { ListGame } from './features/games/ListGame'
+import { ListGame } from './features/games/components/ListGame'
 
 function App() {
   
