@@ -3,12 +3,21 @@ import { Games } from "../../models";
 import { RowGame } from "../RowGame";
 
 export type TableGameProp = {
-  items: Games;
+  items: Games,
+  changeState ?: (id: number, newState: boolean) => void
 };
 
 export const TableGame = (props: TableGameProp) => {
-  console.info(props);
-  const listRows = props.items.map(game => <RowGame key={game.id} id={game.id} characterName={game.persoChoisi.surname} success={game.success.toString()} ></RowGame>)
+  const changeStateTableGame = (id: number, newState: boolean) => {
+    if (typeof props.changeState !== 'undefined') {
+      props.changeState(id, newState);
+    }
+  };
+  const listRows = props.items.map(game => <RowGame key={game.id} 
+                                                    id={game.id} 
+                                                    characterName={game.persoChoisi.surname} success={game.success.toString()} 
+                                                    changeState={changeStateTableGame}
+                                           ></RowGame>)
 
   const composant = (
     <>
@@ -17,6 +26,7 @@ export const TableGame = (props: TableGameProp) => {
           <tr>
             <th>Perso</th>
             <th>Gagnée ?</th>
+            <th>Action(s)</th>
           </tr>
         </thead>
         <tbody>
