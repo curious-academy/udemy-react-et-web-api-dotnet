@@ -1,14 +1,12 @@
 import './App.css'
-import { ListCharacters } from './features/characters/components/ListCharacters'
-import { ListGame } from './features/games/components/ListGame'
+import { MainRoutes } from './AppRoutes'
+import { MainMenu } from './shared/layout/MainMenu'
 
 function App() {
-  
-
   return (
     <>
-      {/* <ListGame></ListGame> */}
-      <ListCharacters></ListCharacters>
+      <MainMenu></MainMenu>
+      <MainRoutes></MainRoutes>
     </>
   )
 }

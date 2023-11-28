@@ -8,7 +8,7 @@ import business from "../../services/characters.application";
 export const ListCharacters = () => {
     const [characters, setCharacters] = useState<Characters>([]);
     const characterDivList = characters.map(character => <div key={character.id}>{character.name}</div>);
-    let id: number | undefined = undefined;
+    // let id: number | undefined = undefined;
 
     useEffect(() => {
         business.getAll().then(result => {
