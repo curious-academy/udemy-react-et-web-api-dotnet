@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "KcxheXKp2x2sMGYdi5sRt8uHwZbZ6iHalTxZ5xc1L5fYPHPi9HokVsGOVwPOXw8yT3TEtTpOZxvWF+ALSePmxA==",
+  "success": true,
+  "projectFilePath": "G:\\Formations\\elearning\\udemy\\React typescript mastering\\code source\\projet final\\backend\\sda.backend\\sda.backend.web.api.ui\\sda.backend.web.api.ui.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\evan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\evan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\evan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\evan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\evan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\evan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
