@@ -6,7 +6,7 @@
     public class Game
     {
         #region Properties
-        public int Id { get; set; }
+        public decimal Id { get; set; }
 
         public DateTime BeginDate { get; set; }
 
