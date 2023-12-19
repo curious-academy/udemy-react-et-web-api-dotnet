@@ -5,6 +5,16 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.ui", "sda.backend.minimalapi.ui\sda.backend.minimalapi.ui.csproj", "{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{8F5E9D3F-F518-4A3B-87F3-A0F0FB9B9A35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Models", "sda.backend.minimalapi.Core.Games.Models\sda.backend.minimalapi.Core.Games.Models.csproj", "{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Interfaces", "sda.backend.minimalapi.Core.Games.Interfaces\sda.backend.minimalapi.Core.Games.Interfaces.csproj", "{D4D6D033-912C-449D-99F8-C12C3A6CD895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Services", "sda.backend.minimalapi.Core.Games.Services\sda.backend.minimalapi.Core.Games.Services.csproj", "{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,27 @@ Global
 		{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D6D033-912C-449D-99F8-C12C3A6CD895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D6D033-912C-449D-99F8-C12C3A6CD895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D6D033-912C-449D-99F8-C12C3A6CD895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D6D033-912C-449D-99F8-C12C3A6CD895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F4BF24E-D356-4FB9-A70C-AD2853F04B40} = {9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}
+		{9EA3EE9C-DDBD-4973-846B-7F4E44CF6799} = {8F5E9D3F-F518-4A3B-87F3-A0F0FB9B9A35}
+		{D4D6D033-912C-449D-99F8-C12C3A6CD895} = {9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}
+		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6} = {9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {206C6410-9E52-48FC-A85B-FC307C025578}

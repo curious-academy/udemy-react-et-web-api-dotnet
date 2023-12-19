@@ -1,17 +1,28 @@
 import { Col, Row } from "react-bootstrap";
 import { TableGame } from "../TableGame";
 import { Games } from "../../models";
-import { getListGame } from "../../services";
 import { TitleGame } from "../TitleGame";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import business from "../../services/game.application";
 
 /**
  * Composant représentant un tableau des games à gérer
  * @returns 
  */
 export const ListGame = () => {
-  const [list, setList] = useState<Games>(getListGame);
+  const [list, setList] = useState<Games>([]);
   const affichageTitre = true;
+
+  useEffect(() => {
+    business.getAll().then(result => {
+        setList(result);
+    });
+
+    return () => {
+        // fonction de cleanup.
+        
+    };
+}, []);
 
   const addGameCallback = () => {
     // list.push({
