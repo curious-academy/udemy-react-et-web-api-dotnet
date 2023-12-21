@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.ui", "sda.backend.minimalapi.ui\sda.backend.minimalapi.ui.csproj", "{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sda.backend.minimalapi.ui", "sda.backend.minimalapi.ui\sda.backend.minimalapi.ui.csproj", "{81C8B608-C2AF-4D2D-9648-9B7C0DFE6B5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{8F5E9D3F-F518-4A3B-87F3-A0F0FB9B9A35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Models", "sda.backend.minimalapi.Core.Games.Models\sda.backend.minimalapi.Core.Games.Models.csproj", "{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sda.backend.minimalapi.Core.Games.Models", "sda.backend.minimalapi.Core.Games.Models\sda.backend.minimalapi.Core.Games.Models.csproj", "{8F4BF24E-D356-4FB9-A70C-AD2853F04B40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Interfaces", "sda.backend.minimalapi.Core.Games.Interfaces\sda.backend.minimalapi.Core.Games.Interfaces.csproj", "{D4D6D033-912C-449D-99F8-C12C3A6CD895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sda.backend.minimalapi.Core.Games.Interfaces", "sda.backend.minimalapi.Core.Games.Interfaces\sda.backend.minimalapi.Core.Games.Interfaces.csproj", "{D4D6D033-912C-449D-99F8-C12C3A6CD895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Games.Services", "sda.backend.minimalapi.Core.Games.Services\sda.backend.minimalapi.Core.Games.Services.csproj", "{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sda.backend.minimalapi.Core.Games.Services", "sda.backend.minimalapi.Core.Games.Services\sda.backend.minimalapi.Core.Games.Services.csproj", "{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{C0B7FF66-9BB7-4A0B-8F31-E249D2E4A8C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Auths.Models", "sda.backend.minimalapi.Core.Auths.Models\sda.backend.minimalapi.Core.Auths.Models.csproj", "{36FB6AE9-D20E-44A5-A5F1-E431B96C4789}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sda.backend.minimalapi.Core.Auths.Services", "sda.backend.minimalapi.Core.Auths.Services\sda.backend.minimalapi.Core.Auths.Services.csproj", "{82CC58C9-AC88-4B44-A5C3-A2120E875FB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,14 @@ Global
 		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FB6AE9-D20E-44A5-A5F1-E431B96C4789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FB6AE9-D20E-44A5-A5F1-E431B96C4789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FB6AE9-D20E-44A5-A5F1-E431B96C4789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FB6AE9-D20E-44A5-A5F1-E431B96C4789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CC58C9-AC88-4B44-A5C3-A2120E875FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CC58C9-AC88-4B44-A5C3-A2120E875FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CC58C9-AC88-4B44-A5C3-A2120E875FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CC58C9-AC88-4B44-A5C3-A2120E875FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +60,9 @@ Global
 		{9EA3EE9C-DDBD-4973-846B-7F4E44CF6799} = {8F5E9D3F-F518-4A3B-87F3-A0F0FB9B9A35}
 		{D4D6D033-912C-449D-99F8-C12C3A6CD895} = {9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}
 		{CC07BD85-AC62-4FBE-9D51-2AEFF008A9C6} = {9EA3EE9C-DDBD-4973-846B-7F4E44CF6799}
+		{C0B7FF66-9BB7-4A0B-8F31-E249D2E4A8C9} = {8F5E9D3F-F518-4A3B-87F3-A0F0FB9B9A35}
+		{36FB6AE9-D20E-44A5-A5F1-E431B96C4789} = {C0B7FF66-9BB7-4A0B-8F31-E249D2E4A8C9}
+		{82CC58C9-AC88-4B44-A5C3-A2120E875FB3} = {C0B7FF66-9BB7-4A0B-8F31-E249D2E4A8C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {206C6410-9E52-48FC-A85B-FC307C025578}

@@ -7,7 +7,7 @@ namespace sda.backend.minimalapi.Core.Games.Services.Models
     public class GameDbContext : DbContext
     {
         #region Constructors
-        public GameDbContext(DbContextOptions options) : base(options)
+        public GameDbContext(DbContextOptions<GameDbContext> options) : base(options)
         {
         }
 
