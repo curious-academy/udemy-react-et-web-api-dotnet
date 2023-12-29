@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { PageListCharacters } from "./features/characters/pages/PageListCharacters";
-import { PageNoMatch } from "./pages/PageNoMatch";
-import { PageHome } from "./pages/PageHome";
 import { PageListGame } from "./features/games/pages/PageListGames";
+import { PageHome } from "./pages/PageHome";
+import { PageNoMatch } from "./pages/PageNoMatch";
 
 export const MainRoutes = () => {
   return (

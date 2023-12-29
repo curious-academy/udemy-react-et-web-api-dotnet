@@ -25,9 +25,9 @@ export const TestDeux = () => {
 export const TestTrois = () => {
     const context = useMyContext();
 
-    const clickToChange = () => {
+    const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (context.setItem !== null ) {
-            context.setItem({value: 'Ceci est test'})
+            context.setItem({value: e.target.value})
         }
     }
 
@@ -35,8 +35,7 @@ export const TestTrois = () => {
         <div>
             <h1>Test 3</h1>
             <div>
-                <input type="text" value={context.item.value}></input>
-                <button type="button" onClick={clickToChange}>Change</button>
+                <input type="text" value={context.item.value} onChange={changeValue}></input>
             </div>
         </div>
     );
