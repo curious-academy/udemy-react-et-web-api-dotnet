@@ -1,23 +1,29 @@
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuthenticationContext } from "../../../features/authentication/store";
 
 /**
  * Menu principal de l'application
  * @returns 
  */
 export const MainMenu = () => {
+  const authContext = useAuthenticationContext();
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to="/">Seigneur des anneaux</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Seigneur des anneaux | connecté ? {authContext.user.status}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Accueil</Nav.Link>
-            <Nav.Link as={Link} to="/characters">Les personnages</Nav.Link>
-            <Nav.Link as={Link} to="/games">Mes parties</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+
+            {authContext.user.status === 'logged' && <Nav.Link as={Link} to="/characters">Les personnages</Nav.Link>}
+            {authContext.user.status === 'logged' && <Nav.Link as={Link} to="/games">Mes parties</Nav.Link>}
+            {
+              authContext.user.status === 'logged' && 
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -26,7 +32,8 @@ export const MainMenu = () => {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+              </NavDropdown>
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,26 +1,29 @@
 import './App.css'
 import { MainRoutes } from './AppRoutes'
+import { AuthenticationContextProvider } from './features/authentication/components/AuthenticationProvider'
 import { LayoutComponent } from './learnings/useChildrenLearn/LayoutComponent'
 import { MainMenu } from './shared/layout/MainMenu'
 
 function App() {
-  const getStorageStr = localStorage.getItem('player');
-  console.info(getStorageStr);
+  // const getStorageStr = localStorage.getItem('player');
+  // console.info(getStorageStr);
 
-  if (getStorageStr) {
-    const player = JSON.parse(getStorageStr) as  {surname: string};
-    console.info(player);
-  } else {
-    localStorage.setItem('player', JSON.stringify({surname: 'legolas'}));
-  }
+  // if (getStorageStr) {
+  //   const player = JSON.parse(getStorageStr) as  {surname: string};
+  //   console.info(player);
+  // } else {
+  //   localStorage.setItem('player', JSON.stringify({surname: 'legolas'}));
+  // }
   
 
   return (
     <>
-      <MainMenu></MainMenu>
-      <LayoutComponent>
-        <MainRoutes></MainRoutes>
-      </LayoutComponent>
+      <AuthenticationContextProvider>
+        <MainMenu></MainMenu>
+        <LayoutComponent>
+          <MainRoutes></MainRoutes>
+        </LayoutComponent>
+      </AuthenticationContextProvider>
     </>
   )
 }

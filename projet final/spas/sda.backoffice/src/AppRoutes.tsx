@@ -3,10 +3,12 @@ import { PageListCharacters } from "./features/characters/pages/PageListCharacte
 import { PageListGame } from "./features/games/pages/PageListGames";
 import { PageHome } from "./pages/PageHome";
 import { PageNoMatch } from "./pages/PageNoMatch";
+import { Login } from "./features/authentication/components/Login";
 
 export const MainRoutes = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/" element={<PageHome></PageHome>}></Route>
       <Route
         path="/characters"
