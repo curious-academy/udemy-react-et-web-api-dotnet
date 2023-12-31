@@ -1,15 +1,17 @@
 import { PostOneUser } from "../custom-types";
 import { AuthenticationUser, LoginUser } from "../models";
 import { fakePostLogInByApi } from "./authentication.infrastructure";
+import { saveUserInLocalDb } from "./localStorage.infrastructure";
 
 /**
  * Login user to database (api)
  * @param api Api to get raw user
  */
 async function logInUser(user: LoginUser, api: PostOneUser): Promise<AuthenticationUser> {
-    let result = await api(user);
+    const result = await api(user);
 
     // TODO: save in localStorage
+    saveUserInLocalDb(result);
 
     return result;
 }
