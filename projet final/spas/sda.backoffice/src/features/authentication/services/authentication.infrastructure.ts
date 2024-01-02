@@ -1,14 +1,23 @@
 import { AuthenticationUser, LoginUser } from "../models";
 
-const url = 'https://localhost:7025/api/login';
+const url = 'https://localhost:7025/login';
 
 type ApiReturnType = {
     surname: string,
-    token: string
+    accessToken: string
 }
 
 async function postRawApi(user: LoginUser): Promise<ApiReturnType> {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email: user.login,
+            password: user.password
+        }),
+      });
     const result = await response.json() as ApiReturnType;
     return result;
 }
@@ -22,7 +31,7 @@ export async function fakePostLogInByApi(user: LoginUser): Promise<Authenticatio
         setTimeout(() => {
             resolve({
                 surname: 'Legolas',
-                token: '123456789'
+                accessToken: '123456789'
             })        
         }, 1000);
     })

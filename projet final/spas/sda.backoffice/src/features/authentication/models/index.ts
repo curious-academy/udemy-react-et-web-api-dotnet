@@ -8,5 +8,5 @@ export interface LoginUser {
 }
 
 export interface AuthenticationUser extends User {
-    token ?: string;
+    accessToken ?: string;
 }

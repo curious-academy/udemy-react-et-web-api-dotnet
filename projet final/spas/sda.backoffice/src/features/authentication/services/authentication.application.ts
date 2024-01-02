@@ -1,6 +1,6 @@
 import { PostOneUser } from "../custom-types";
 import { AuthenticationUser, LoginUser } from "../models";
-import { fakePostLogInByApi } from "./authentication.infrastructure";
+import { postLogInByApi } from "./authentication.infrastructure";
 import { saveUserInLocalDb } from "./localStorage.infrastructure";
 
 /**
@@ -17,7 +17,7 @@ async function logInUser(user: LoginUser, api: PostOneUser): Promise<Authenticat
 }
 
 export function factoryLogInUserBusiness(user: LoginUser): Promise<AuthenticationUser> {
-    return logInUser(user, fakePostLogInByApi);
+    return logInUser(user, postLogInByApi);
 }
 
 const business = {
