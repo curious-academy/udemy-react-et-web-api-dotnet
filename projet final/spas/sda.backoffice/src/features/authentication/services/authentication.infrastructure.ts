@@ -1,6 +1,6 @@
 import { AuthenticationUser, LoginUser } from "../models";
 
-const url = 'https://localhost:7025//api/login';
+const url = 'https://localhost:7025/api/login';
 
 type ApiReturnType = {
     userName: string,
