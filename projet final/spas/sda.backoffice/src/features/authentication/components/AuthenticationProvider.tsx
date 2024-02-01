@@ -12,7 +12,7 @@ export const AuthenticationContextProvider = (props: PropsWithChildren) => {
         business.logIn({ login, password})
                 .then(user => {
                     setUserState({
-                        user: {email: user.email, surname: user.surname, token: user.token},
+                        user: {email: user.email, userName: user.userName, token: user.token},
                         status: 'logged'
                     });
                     navigate('/');

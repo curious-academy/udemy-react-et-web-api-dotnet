@@ -1,10 +1,11 @@
 import { AuthenticationUser, LoginUser } from "../models";
 
-const url = 'https://localhost:7025/login';
+const url = 'https://localhost:7025//api/login';
 
 type ApiReturnType = {
-    surname: string,
-    accessToken: string
+    userName: string,
+    email: string,
+    token: string
 }
 
 async function postRawApi(user: LoginUser): Promise<ApiReturnType> {
@@ -30,7 +31,8 @@ export async function fakePostLogInByApi(user: LoginUser): Promise<Authenticatio
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({
-                surname: 'Legolas',
+                userName: 'Legolas',
+                email: user.login,
                 token: '123456789'
             })        
         }, 1000);
