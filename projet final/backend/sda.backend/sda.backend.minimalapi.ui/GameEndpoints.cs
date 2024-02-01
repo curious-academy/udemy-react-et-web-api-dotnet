@@ -13,6 +13,7 @@ public static class GameEndpoints
             return service.GetAll();
         })
         .WithName("GetAllGames")
+        .RequireAuthorization()
         .WithOpenApi();
 
         group.MapGet("/{id}", (int id) =>

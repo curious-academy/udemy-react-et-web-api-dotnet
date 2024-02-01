@@ -98,6 +98,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthorization();
+
 builder.Services.AddScoped<ITokenService, JwtTokenService>();
 //builder.Services.AddScoped<IGetAllGameService, FakeInMemoryGetAllGameService>();
 builder.Services.AddScoped<IGetAllGameService, SqlServerGetAllGameService>();
@@ -115,8 +117,12 @@ app.UseCors("AllowAllHeaders");
 
 app.UseHttpsRedirection();
 
-app.MapGameEndpoints();
+app.UseAuthentication();
+app.UseAuthorization();
 
+
+app.MapGameEndpoints();
 app.MapCreationUserEndpoints();
+app.MapLoginUserEndpoints();
 
 app.Run();
