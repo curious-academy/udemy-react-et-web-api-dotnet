@@ -1,10 +1,15 @@
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using sda.backend.minimalapi.Core.Auths.Interfaces;
 using sda.backend.minimalapi.Core.Auths.Models;
+using sda.backend.minimalapi.Core.Auths.Services;
 using sda.backend.minimalapi.Core.Games.Interfaces;
 using sda.backend.minimalapi.Core.Games.Services;
 using sda.backend.minimalapi.Core.Games.Services.Models;
 using sda.backend.minimalapi.ui;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +27,35 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+#region Parametrage swagger + bearer dans swagger
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
 
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+});
+#endregion
 
 string? connectionString = builder.Configuration.GetConnectionString("sda.backoffice.database");
 builder.Services.AddDbContext<GameDbContext>(options =>
@@ -40,14 +72,33 @@ builder.Services.AddIdentityCore<AuthenticationUser>(options =>
 {
     //options.SignIn.RequireConfirmedEmail = true;
 })
-.AddEntityFrameworkStores<AuthenticationDbContext>()
-.AddApiEndpoints();
+.AddEntityFrameworkStores<AuthenticationDbContext>();
 
-builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme, options =>
+
+IConfigurationSection jwtSection = builder.Configuration.GetSection("JwtTokenSettings");
+builder.Services.AddAuthentication(options =>
 {
-});
-builder.Services.AddAuthorizationBuilder();
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.IncludeErrorDetails = true;
 
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ClockSkew = TimeSpan.Zero,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSection["ValidIssuer"],
+        ValidAudience = jwtSection["ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSection["SymmetricSecurityKey"]!))
+    };
+});
+
+builder.Services.AddScoped<ITokenService, JwtTokenService>();
 //builder.Services.AddScoped<IGetAllGameService, FakeInMemoryGetAllGameService>();
 builder.Services.AddScoped<IGetAllGameService, SqlServerGetAllGameService>();
 
@@ -64,8 +115,8 @@ app.UseCors("AllowAllHeaders");
 
 app.UseHttpsRedirection();
 
-
-app.MapIdentityApi<AuthenticationUser>();
 app.MapGameEndpoints();
+
+app.MapCreationUserEndpoints();
 
 app.Run();

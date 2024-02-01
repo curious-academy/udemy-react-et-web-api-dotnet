@@ -6,13 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.0" />
+	</ItemGroup>
+	
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
-	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\sda.backend.minimalapi.Core.Auths.Interfaces\sda.backend.minimalapi.Core.Auths.Interfaces.csproj" />
     <ProjectReference Include="..\sda.backend.minimalapi.Core.Auths.Models\sda.backend.minimalapi.Core.Auths.Models.csproj" />
   </ItemGroup>
 
