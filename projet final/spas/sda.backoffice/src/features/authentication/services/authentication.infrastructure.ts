@@ -31,7 +31,7 @@ export async function fakePostLogInByApi(user: LoginUser): Promise<Authenticatio
         setTimeout(() => {
             resolve({
                 surname: 'Legolas',
-                accessToken: '123456789'
+                token: '123456789'
             })        
         }, 1000);
     })

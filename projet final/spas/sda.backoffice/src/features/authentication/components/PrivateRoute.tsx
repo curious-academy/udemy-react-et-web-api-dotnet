@@ -5,7 +5,7 @@ import { getUserFromLocalDb } from "../services/localStorage.infrastructure";
 export const PrivateRoute = (props: PropsWithChildren) => {
     const user = getUserFromLocalDb();
 
-    if (user === null || ! user.accessToken) {
+    if (user === null || ! user.token) {
         return <Navigate to='/login' replace></Navigate>
     }
     
