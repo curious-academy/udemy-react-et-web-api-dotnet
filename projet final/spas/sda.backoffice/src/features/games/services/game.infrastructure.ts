@@ -1,8 +1,8 @@
-import { getUserFromLocalDb } from "../../authentication/services/localStorage.infrastructure";
+import handler from "../../../core/infrastructures/https/http-handler";
 import { Games } from "../models";
 
 // TODO: ALERT, delete from code !!!
-const url = 'https://localhost:7025/api/game';
+const url = 'api/game';
 
 type GameApiReturnType = {
     id: number,
@@ -18,13 +18,8 @@ type ApiReturnType = GameApiReturnType[];
  * Return list of characters from api
  */
 async function getRawApi(): Promise<ApiReturnType> {
-    const userLocal = getUserFromLocalDb();
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {Authorization: `Bearer ${userLocal?.token}`}
-    });
-    const result = await response.json() as ApiReturnType;
-    return result;
+    const response = await handler.get<ApiReturnType>(url);
+    return response.data;
 }
 
 async function getAllGamesByApiGeneric(rawApi: () => Promise<ApiReturnType>): Promise<Games> {
