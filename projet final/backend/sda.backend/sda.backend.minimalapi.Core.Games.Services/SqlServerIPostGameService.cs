@@ -4,28 +4,30 @@ using sda.backend.minimalapi.Core.Games.Services.Models;
 
 namespace sda.backend.minimalapi.Core.Games.Services
 {
-	public class SqlServerGetAllGameService : IGetAllGameService
+	public class SqlServerIPostGameService : IPostGameService
 	{
 		#region Fields
 		private readonly GameDbContext context;
 		#endregion
 
 		#region Constructors
-		public SqlServerGetAllGameService(GameDbContext context)
+		public SqlServerIPostGameService(GameDbContext context)
 		{
 			this.context = context;
 		}
 		#endregion
 
 		#region Public methods
-		public IEnumerable<Game> GetAll()
+		public void PostOne(Game game)
 		{
-			var query = from item in context.Games
-						where item.Character != null
-						select item;
+			this.context.Games.Add(game);
+			this.context.SaveChanges();
+		}
 
-			//return this.context.Games.Where(item => item.Character != null).ToList();
-			return query.ToList();
+		public Task PostOneAsync(Game game)
+		{
+			this.context.Games.Add(game);
+			return this.context.SaveChangesAsync();
 		}
 		#endregion
 	}

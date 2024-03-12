@@ -1,20 +1,22 @@
 ﻿namespace sda.backend.minimalapi.Core.Games.Models
 {
-    /// <summary>
-    /// Game model, domain first
-    /// </summary>
-    public class Game
-    {
-        #region Properties
-        public decimal Id { get; set; }
+	/// <summary>
+	/// Game model, domain first
+	/// </summary>
+	public class Game
+	{
+		#region Properties
+		public decimal Id { get; set; }
 
-        public DateTime BeginDate { get; set; }
+		public string Titre { get; set; } = string.Empty;
 
-        public DateTime? EndDate { get; set; }
+		public DateTime BeginDate { get; set; }
 
-        public string Character { get; set; } = string.Empty;
+		public DateTime? EndDate { get; set; }
 
-        public bool Success { get; set; }
-        #endregion
-    }
+		public string Character { get; set; } = string.Empty;
+
+		public bool Success { get; set; }
+		#endregion
+	}
 }
