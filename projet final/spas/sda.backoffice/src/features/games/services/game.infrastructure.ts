@@ -1,5 +1,5 @@
 import handler from "../../../core/infrastructures/https/http-handler";
-import { Games } from "../models";
+import { Game, Games } from "../models";
 
 // TODO: ALERT, delete from code !!!
 const url = 'api/game';
@@ -22,11 +22,19 @@ async function getRawApi(): Promise<ApiReturnType> {
     return response.data;
 }
 
+export async function createOneGameByApiGeneric(item: Game): Promise<Game> {
+    const response = await handler.post<Game>(url, item);
+
+    return response.data;
+}
+
 async function getAllGamesByApiGeneric(rawApi: () => Promise<ApiReturnType>): Promise<Games> {
     const resultApi = await rawApi();
 
     return resultApi.map(gameApi => ({
         id: gameApi.id,
+        titre: '',
+        videoGameId: 0,
         persoChoisi: { surname: gameApi.character },
         success: gameApi.success
     }));

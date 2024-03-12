@@ -1,6 +1,6 @@
-import { GetAllGames } from "../custom-types";
-import { Games } from "../models";
-import { getAllGamesByApi } from "./game.infrastructure";
+import { CreateOneGame, GetAllGames } from "../custom-types";
+import { Game, Games } from "../models";
+import { createOneGameByApiGeneric, getAllGamesByApi } from "./game.infrastructure";
 
 /**
  * Gets all characters
@@ -9,17 +9,26 @@ import { getAllGamesByApi } from "./game.infrastructure";
 async function getAllGames(api: GetAllGames): Promise<Games> {
     let result = await api();
 
-    result = result.filter(item => item.persoChoisi.surname !== '');
+    result = result.filter(item => item.persoChoisi?.surname !== '');
 
     return result;
 }
 
-export function factoryGetAllCharactersBusiness(): Promise<Games> {
+async function createOneGame(item: Game, api: CreateOneGame): Promise<Game> {
+    return await api(item);
+}
+
+export function factoryGetAllGamesBusiness(): Promise<Games> {
     return getAllGames(getAllGamesByApi);
 }
 
+export function factoryCreateOneGameBusiness(item: Game): Promise<Game> {
+    return createOneGame(item, createOneGameByApiGeneric);
+}
+
 const business = {
-    getAll: factoryGetAllCharactersBusiness
+    getAll: factoryGetAllGamesBusiness,
+    createOne: factoryCreateOneGameBusiness
 }
 
 export default business;

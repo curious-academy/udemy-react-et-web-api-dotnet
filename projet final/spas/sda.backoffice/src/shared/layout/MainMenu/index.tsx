@@ -20,6 +20,7 @@ export const MainMenu = () => {
 
             {authContext.user.status === 'logged' && <Nav.Link as={Link} to="/characters">Les personnages</Nav.Link>}
             {authContext.user.status === 'logged' && <Nav.Link as={Link} to="/games">Mes parties</Nav.Link>}
+            {authContext.user.status === 'logged' && <Nav.Link as={Link} to="/games/new">Nouvelle partie</Nav.Link>}
             {
               authContext.user.status === 'logged' && 
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">

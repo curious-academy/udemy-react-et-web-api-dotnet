@@ -5,6 +5,7 @@ import { PageHome } from "./pages/PageHome";
 import { PageNoMatch } from "./pages/PageNoMatch";
 import { Login } from "./features/authentication/components/Login";
 import { PrivateRoute } from "./features/authentication/components/PrivateRoute";
+import { PageCreateGame } from "./features/games/pages/PageCreateGame";
 
 export const MainRoutes = () => {
   return (
@@ -18,6 +19,10 @@ export const MainRoutes = () => {
       <Route
         path="/games"
         element={<PrivateRoute><PageListGame></PageListGame></PrivateRoute>}
+      ></Route>
+      <Route
+        path="/games/new"
+        element={<PrivateRoute><PageCreateGame></PageCreateGame></PrivateRoute>}
       ></Route>
       <Route path="*" element={<PageNoMatch />} />
     </Routes>
