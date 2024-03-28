@@ -1,9 +1,8 @@
 import './App.css'
 import { MainRoutes } from './AppRoutes'
 import { AuthenticationContextProvider } from './features/authentication/components/AuthenticationProvider'
-import List from './learnings/memoLearn/MemoLearn'
+import ParentComponent from './learnings/useCallbackLearn/useCallbackLearn'
 import { LayoutComponent } from './learnings/useChildrenLearn/LayoutComponent'
-import SquareList from './learnings/useMemoLearn/useMemoLearn'
 import { MainMenu } from './shared/layout/MainMenu'
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <>
-      <SquareList></SquareList>
+      <ParentComponent></ParentComponent>
 
       <AuthenticationContextProvider>
         <MainMenu></MainMenu>
